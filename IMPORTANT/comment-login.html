@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>댓글 리스트</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css"
+      integrity="sha256-PF6MatZtiJ8/c9O9HQ8uSUXr++R9KBYu4gbNG5511WE="
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+    />
+    <!--아이콘-->
+    <link href="./style login.css" rel="stylesheet" />
+    <script src="./assets/script/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-container">
+        <header>
+          <a href="" aria-label="이전">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          </a>
+          <button type="button" aria-label="메뉴">
+            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+          </button>
+        </header>
+      </div>
+      <div class="background-img">
+        <section>
+          <header>
+            <div class="main-name">
+              <img src="./assets/user1.jpg" alt="#" />
+              <h3>STAFF 대니</h3>
+            </div>
+            <p><span>#</span>시간 전</p>
+          </header>
+          <div class="main-content">
+            2021년 캐나다 워홀 모집 현황 입니다 이번 주는 캐나다 시간 5월14일자
+            기준 업데이트 현황입니다 캐나다 시간 5월14일 기준으로, ​ 지금까지
+            인비테이션 선발 인원은 380명 입니다 지난 4월23일 까지는 240명으로 약
+            3주 동안 "140명" 선발 되었습니다. ​ 모집가능 인원은 3,662명으로 아직
+            많이 남았습니다 프로파일을 신청하고 선발을 기다리는 인원은 815명
+            입니다. ​ ​ 올해는 코로나 문제로 이전과는 전혀 다른 선발 분위기
+            입니다 지원자도 현저하게 적고 매주 40명 내외를 꾸준하게 선발하고
+            있습니다 코로나와 잡오퍼가 워홀선발 모습을 다르게 바꾸었네요 ​
+            어려운 상황에서도 지원하신 분들 모두 좋은 결과 있기를 바랍니다..^^
+            코로나 문제가 빨리 해결되었으면 좋겠습니다..
+          </div>
+          <div class="emoticon">
+            <div>
+              <span class="commentCounter" aria-label="말풍선" onclick="">
+                <i class="fa fa-comment-o" aria-hidden="true">2</i>
+              </span>
+            </div>
+            <div>
+              <span aria-label="좋아요" onclick="">
+                <i
+                  class="fa fa-thumbs-o-up"
+                  onclick="updatePostCounter(this)"
+                  aria-hidden="true"
+                  >0</i
+                >
+              </span>
+              <span aria-label="싫어요" onclick="">
+                <i
+                  class="fa fa-thumbs-o-down"
+                  onclick="updatePostCounter(this)"
+                  aria-hidden="true"
+                  >0</i
+                >
+              </span>
+              <span aria-label="펌" onclick="">
+                <i
+                  class="fa fa-share"
+                  onclick="updatePostCounter(this)"
+                  aria-hidden="true"
+                  >0</i
+                >
+              </span>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="comment-box">
+        <div class="top">
+          <ul class="commentMainBox"></ul>
+        </div>
+        <div class="bottom">
+          <h3>나도 한마디!</h3>
+          <div class="input-group">
+            <input
+              type="text"
+              onfocus="focusComment(this)"
+              placeholder="댓글을 입력해 주세요"
+            />
+            <button type="button" onclick="addComment()">등 록</button> 
+          </div>
+        </div>
+        <div class="modalBox">
+          <div class="loginBox">
+            &nbsp; 로그인 해서 댓글 쓰세요.
+            <p class="showLoginState"></p>
+            <input type="text" class="userId" placeholder="아이디" />
+            <input type="password" class="userPw" placeholder="비밀번호" />
+            <button onclick="checkLogin()">로그인</button>
+          </div>
+
+          <div class="commentInputArea">
+            &nbsp;
+            <div class="commentUserInfo"></div>
+            <textarea
+              id="txtContent"
+              name="conmmentText"
+              cols="40"
+              rows="6"
+              placeholder="댓글 작성시 상대방에 대한 배려와 책임을 담아주세요."
+            ></textarea>
+            <div>
+              <span aria-label="사진" onclick="">
+                <i class="fa fa-picture-o" aria-hidden="true"></i>
+              </span>
+              <span aria-label="이모티콘" onclick="">
+                <i class="fa fa-smile-o" aria-hidden="true"></i>
+              </span>
+            </div>
+            <button onclick="submitComment()">댓글등록</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
